@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасная дорога - детям │ Тесты</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #f0f9ff;
+        }
+        .test-card {
+            transition: all 0.3s ease;
+        }
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .option {
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background-color: #e0f2fe;
+        }
+        .option.selected {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .option.correct {
+            background-color: #10b981;
+            color: white;
+        }
+        .option.incorrect {
+            background-color: #ef4444;
+            color: white;
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .badge {
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="traffic-cone" class="w-8 h-8"></i>
+                <h1 class="text-2xl font-bold">Безопасная дорога - детям │ Тесты</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-yellow-200 transition">Главная</a></li>
+                    <li><a href="rules.html" class="hover:text-yellow-200 transition">Правила</a></li>
+                    <li><a href="tests.html" class="hover:text-yellow-200 transition font-bold">Тесты</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Test Selection -->
+        <section id="test-selection" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-blue-800 mb-8" data-aos="fade-down">Проверь свои знания!</h2>
+            <p class="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12" data-aos="fade-up">Выбери тест и получи медаль за успешное прохождение!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Beginner Test -->
+                <div class="test-card bg-white rounded-xl shadow-lg p-6 text-center" data-aos="flip-left">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="star" class="w-10 h-10 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Начинающий</h3>
+                    <p class="text-gray-600 mb-4">Простые вопросы для самых маленьких</p>
+                    <button onclick="startTest('beginner')" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+                        Начать тест
+                    </button>
+                </div>
+                
+                <!-- Intermediate Test -->
+                <div class="test-card bg-white rounded-xl shadow-lg p-6 text-center" data-aos="flip-left" data-aos-delay="150">
+                    <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="award" class="w-10 h-10 text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Средний</h3>
+                    <p class="text-gray-600 mb-4">Для тех, кто уже знает основы</p>
+                    <button onclick="startTest('intermediate')" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition">
+                        Начать тест
+                    </button>
+                </div>
+                
+                <!-- Advanced Test -->
+                <div class="test-card bg-white rounded-xl shadow-lg p-6 text-center" data-aos="flip-left" data-aos-delay="300">
+                    <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="zap" class="w-10 h-10 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Продвинутый</h3>
+                    <p class="text-gray-600 mb-4">Сложные вопросы для экспертов ПДД</p>
+                    <button onclick="startTest('advanced')" class="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition">
+                        Начать тест
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Test Area (hidden by default) -->
+        <section id="test-area" class="hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span id="progress-text" class="font-medium">Вопрос 1 из 5</span>
+                        <span id="score-text" class="font-medium">0 баллов</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div id="progress-bar" class="progress-bar bg-blue-600 h-4 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- Question -->
+                <div id="question-container">
+                    <h3 id="question-text" class="text-2xl font-bold text-blue-800 mb-6"></h3>
+                    
+                    <!-- Image for question (if any) -->
+                    <div id="question-image-container" class="mb-6 hidden">
+                        <img id="question-image" src="" alt="" class="w-full h-48 object-contain rounded-lg">
+                    </div>
+                    
+                    <!-- Options -->
+                    <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"></div>
+                    
+                    <!-- Navigation -->
+                    <div class="flex justify-between">
+                        <button id="prev-btn" class="bg-gray-300 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-400 transition hidden">
+                            <i data-feather="arrow-left" class="inline mr-2"></i> Назад
+                        </button>
+                        <button id="next-btn" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition ml-auto">
+                            Далее <i data-feather="arrow-right" class="inline ml-2"></i>
+                        </button>
+                        <button id="finish-btn" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition ml-auto hidden">
+                            Завершить <i data-feather="check" class="inline ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results Area (hidden by default) -->
+        <section id="results-area" class="hidden text-center">
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                <h3 id="results-title" class="text-3xl font-bold text-blue-800 mb-6"></h3>
+                <p id="results-score" class="text-xl mb-6"></p>
+                <div id="badge-container" class="mb-8"></div>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="restartTest()" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+                        Пройти еще раз
+                    </button>
+                    <button onclick="showTestSelection()" class="bg-gray-300 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-400 transition">
+                        Выбрать другой тест
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Badges Earned -->
+        <section id="badges-earned" class="mt-16">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-8">Твои награды</h2>
+            <div id="badges-container" class="flex flex-wrap justify-center gap-6">
+                <!-- Badges will be added here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4"></p>
+            
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+        
+        // Test data
+        const tests = {
+            beginner: {
+                title: "Начинающий уровень",
+                questions: [
+                    {
+                        text: "Какого цвета сигнал светофора разрешает переходить дорогу?",
+                        image: "",
+                        options: [
+                            { text: "Красный", correct: false },
+                            { text: "Желтый", correct: false },
+                            { text: "Зеленый", correct: true },
+                            { text: "Синий", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Где нужно переходить дорогу, если рядом есть пешеходный переход?",
+                        image: "images/bdt12.jpeg",
+                        options: [
+                            { text: "В любом месте", correct: false },
+                            { text: "Там, где меньше машин", correct: false },
+                            { text: "Только по пешеходному переходу", correct: true },
+                            { text: "Там, где удобнее", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Что нужно сделать перед тем, как переходить дорогу?",
+                        image: "",
+                        options: [
+                            { text: "Посмотреть по сторонам", correct: true },
+                            { text: "Позвонить по телефону", correct: false },
+                            { text: "Надеть наушники", correct: false },
+                            { text: "Закрыть глаза", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Можно ли играть на проезжей части дороги?",
+                        image: "images/bdt13.jpeg",
+                        options: [
+                            { text: "Да, если нет машин", correct: false },
+                            { text: "Нет, это опасно", correct: true },
+                            { text: "Только в дневное время", correct: false },
+                            { text: "Только с друзьями", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Как должен вести себя пешеход в темное время суток?",
+                        image: "",
+                        options: [
+                            { text: "Идти быстро, чтобы быстрее перейти", correct: false },
+                            { text: "Использовать светоотражающие элементы", correct: true },
+                            { text: "Бежать через дорогу", correct: false },
+                            { text: "Идти по середине дороги", correct: false }
+                        ]
+                    }
+                ]
+            },
+            intermediate: {
+                title: "Средний уровень",
+                questions: [
+                    {
+                        text: "Что означает желтый сигнал светофора?",
+                        image: "",
+                        options: [
+                            { text: "Можно переходить дорогу", correct: false },
+                            { text: "Нужно приготовиться к переходу", correct: true },
+                            { text: "Можно бежать через дорогу", correct: false },
+                            { text: "Можно стоять на дороге", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Как правильно переходить дорогу, если нет светофора?",
+                        image: "images/bdt14.jpeg",
+                        options: [
+                            { text: "Посмотреть налево, потом направо", correct: true },
+                            { text: "Перебежать быстро", correct: false },
+                            { text: "Идти, не глядя", correct: false },
+                            { text: "Ждать, пока все машины проедут", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Можно ли переходить дорогу, если горит зеленый, но машины не остановились?",
+                        image: "",
+                        options: [
+                            { text: "Да, ведь у меня зеленый", correct: false },
+                            { text: "Нет, нужно убедиться, что все остановились", correct: true },
+                            { text: "Только если очень нужно", correct: false },
+                            { text: "Только если машин мало", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Как должен вести себя велосипедист на пешеходном переходе?",
+                        image: "images/bdt15.jpeg",
+                        options: [
+                            { text: "Переезжать на велосипеде", correct: false },
+                            { text: "Слезть с велосипеда и вести его рядом", correct: true },
+                            { text: "Ехать медленно", correct: false },
+                            { text: "Кричать, чтобы его пропустили", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Где безопаснее всего кататься на велосипеде детям?",
+                        image: "",
+                        options: [
+                            { text: "На проезжей части", correct: false },
+                            { text: "Во дворе или на велодорожке", correct: true },
+                            { text: "На тротуаре", correct: false },
+                            { text: "В парке на дорожках", correct: true }
+                        ]
+                    }
+                ]
+            },
+            advanced: {
+                title: "Продвинутый уровень",
+                questions: [
+                    {
+                        text: "Что должен сделать пешеход, если начал переходить дорогу на зеленый, но загорелся красный?",
+                        image: "",
+                        options: [
+                            { text: "Вернуться назад", correct: false },
+                            { text: "Быстро перебежать", correct: false },
+                            { text: "Продолжить переход спокойно", correct: true },
+                            { text: "Остановиться посередине", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Как правильно обходить автобус на остановке?",
+                        image: "images/bdt16.jpeg",
+                        options: [
+                            { text: "Спереди", correct: false },
+                            { text: "Сзади", correct: true },
+                            { text: "Как удобнее", correct: false },
+                            { text: "Подождать, пока автобус уедет", correct: true }
+                        ]
+                    },
+                    {
+                        text: "Что означает мигающий зеленый сигнал светофора?",
+                        image: "",
+                        options: [
+                            { text: "Скоро загорится желтый", correct: true },
+                            { text: "Можно переходить", correct: false },
+                            { text: "Светофор сломался", correct: false },
+                            { text: "Нужно бежать", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Как правильно переходить дорогу с велосипедом?",
+                        image: "",
+                        options: [
+                            { text: "Ехать медленно", correct: false },
+                            { text: "Слезть и вести велосипед рядом", correct: true },
+                            { text: "Переезжать быстро", correct: false },
+                            { text: "Ждать, пока не будет машин", correct: false }
+                        ]
+                    },
+                    {
+                        text: "Где должен идти пешеход, если нет тротуара?",
+                        image: "",
+                        options: [
+                            { text: "По правой стороне дороги", correct: false },
+                            { text: "По левой обочине, навстречу транспорту", correct: true },
+                            { text: "По середине дороги", correct: false },
+                            { text: "Как удобнее", correct: false }
+                        ]
+                    }
+                ]
+            }
+        };
+        
+        // Test state
+        let currentTest = null;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+        
+        // DOM elements
+        const testSelectionSection = document.getElementById('test-selection');
+        const testAreaSection = document.getElementById('test-area');
+        const resultsAreaSection = document.getElementById('results-area');
+        const questionText = document.getElementById('question-text');
+        const questionImageContainer = document.getElementById('question-image-container');
+        const questionImage = document.getElementById('question-image');
+        const optionsContainer = document.getElementById('options-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const finishBtn = document.getElementById('finish-btn');
+        const progressText = document.getElementById('progress-text');
+        const scoreText = document.getElementById('score-text');
+        const progressBar = document.getElementById('progress-bar');
+        const resultsTitle = document.getElementById('results-title');
+        const resultsScore = document.getElementById('results-score');
+        const badgeContainer = document.getElementById('badge-container');
+        const badgesContainer = document.getElementById('badges-container');
+        
+        // Start test
+        function startTest(testLevel) {
+            currentTest = tests[testLevel];
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            testSelectionSection.classList.add('hidden');
+            testAreaSection.classList.remove('hidden');
+            resultsAreaSection.classList.add('hidden');
+            
+            loadQuestion();
+            updateProgress();
+            updateScore();
+            
+            // Load earned badges from localStorage
+            loadBadges();
+        }
+        
+        // Load question
+        function loadQuestion() {
+            const question = currentTest.questions[currentQuestionIndex];
+            
+            questionText.textContent = question.text;
+            
+            if (question.image) {
+                questionImage.src = question.image;
+                questionImage.alt = question.text;
+                questionImageContainer.classList.remove('hidden');
+            } else {
+                questionImageContainer.classList.add('hidden');
+            }
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('button');
+                optionElement.className = 'option bg-gray-100 text-gray-800 p-4 rounded-lg text-left';
+                optionElement.textContent = option.text;
+                optionElement.dataset.index = index;
+                optionElement.dataset.correct = option.correct;
+                optionElement.onclick = selectOption;
+                
+                // If user already answered this question, show their answer
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    if (userAnswers[currentQuestionIndex] === index) {
+                        optionElement.classList.add('selected');
+                        if (option.correct) {
+                            optionElement.classList.add('correct');
+                        } else {
+                            optionElement.classList.add('incorrect');
+                        }
+                    } else if (option.correct) {
+                        optionElement.classList.add('correct');
+                    }
+                }
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons
+            prevBtn.classList.toggle('hidden', currentQuestionIndex === 0);
+            nextBtn.classList.toggle('hidden', userAnswers[currentQuestionIndex] === undefined);
+            finishBtn.classList.toggle('hidden', currentQuestionIndex < currentTest.questions.length - 1 || userAnswers[currentQuestionIndex] === undefined);
+        }
+        
+        // Select option
+        function selectOption() {
+            // If already answered this question, do nothing
+            if (userAnswers[currentQuestionIndex] !== undefined) return;
+            
+            const selectedIndex = parseInt(this.dataset.index);
+            const isCorrect = this.dataset.correct === 'true';
+            
+            // Mark as selected
+            this.classList.add('selected');
+            
+            // Mark correct/incorrect
+            if (isCorrect) {
+                this.classList.add('correct');
+                score += 20; // Each question worth 20 points (for 5 questions = 100 max)
+                updateScore();
+            } else {
+                this.classList.add('incorrect');
+                // Highlight correct answer
+                document.querySelectorAll('.option').forEach(opt => {
+                    if (opt.dataset.correct === 'true') {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Save user answer
+            userAnswers[currentQuestionIndex] = selectedIndex;
+            
+            // Update navigation buttons
+            nextBtn.classList.remove('hidden');
+            if (currentQuestionIndex === currentTest.questions.length - 1) {
+                finishBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+            }
+        }
+        
+        // Next question
+        function nextQuestion() {
+            if (currentQuestionIndex < currentTest.questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                updateProgress();
+            }
+        }
+        
+        // Previous question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+                updateProgress();
+            }
+        }
+        
+        // Update progress
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / currentTest.questions.length) * 100;
+            progressText.textContent = `Вопрос ${currentQuestionIndex + 1} из ${currentTest.questions.length}`;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        // Update score
+        function updateScore() {
+            scoreText.textContent = `${score} баллов`;
+        }
+        
+        // Finish test
+        function finishTest() {
+            testAreaSection.classList.add('hidden');
+            resultsAreaSection.classList.remove('hidden');
+            
+            resultsTitle.textContent = currentTest.title;
+            resultsScore.textContent = `Твой результат: ${score} из 100 баллов`;
+            
+            // Determine badge based on score
+            let badge = null;
+            if (score >= 90) {
+                badge = { name: "Эксперт ПДД", icon: "award", color: "bg-yellow-500" };
+            } else if (score >= 70) {
+                badge = { name: "Знаток ПДД", icon: "star", color: "bg-blue-500" };
+            } else if (score >= 50) {
+                badge = { name: "Ученик ПДД", icon: "thumbs-up", color: "bg-green-500" };
+            }
+            
+            // Show badge if earned
+            badgeContainer.innerHTML = '';
+            if (badge) {
+                const badgeElement = document.createElement('div');
+                badgeElement.className = `badge ${badge.color} text-white w-24 h-24 rounded-full flex flex-col items-center justify-center mx-auto`;
+                badgeElement.innerHTML = `
+                    <i data-feather="${badge.icon}" class="w-10 h-10"></i>
+                    <span class="text-sm mt-2">${badge.name}</span>
+                `;
+                badgeContainer.appendChild(badgeElement);
+                feather.replace();
+                
+                // Save badge to localStorage
+                saveBadge(badge);
+            }
+            
+            // Update badges display
+            loadBadges();
+        }
+        
+        // Save badge to localStorage
+        function saveBadge(badge) {
+            let badges = JSON.parse(localStorage.getItem('pdd_badges') || '[]');
+            
+            // Check if badge already exists
+            const exists = badges.some(b => b.name === badge.name && b.icon === badge.icon);
+            if (!exists) {
+                badges.push(badge);
+                localStorage.setItem('pdd_badges', JSON.stringify(badges));
+            }
+        }
+        
+        // Load badges from localStorage
+        function loadBadges() {
+            const badges = JSON.parse(localStorage.getItem('pdd_badges') || '[]');
+            badgesContainer.innerHTML = '';
+            
+            if (badges.length === 0) {
+                badgesContainer.innerHTML = '<p class="text-gray-600">У тебя пока нет наград. Пройди тесты, чтобы получить их!</p>';
+                return;
+            }
+            
+            badges.forEach(badge => {
+                const badgeElement = document.createElement('div');
+                badgeElement.className = `badge ${badge.color} text-white w-24 h-24 rounded-full flex flex-col items-center justify-center`;
+                badgeElement.innerHTML = `
+                    <i data-feather="${badge.icon}" class="w-10 h-10"></i>
+                    <span class="text-sm mt-2">${badge.name}</span>
+                `;
+                badgesContainer.appendChild(badgeElement);
+            });
+            
+            feather.replace();
+        }
+        
+        // Restart test
+        function restartTest() {
+            startTest(currentTest === tests.beginner ? 'beginner' : 
+                     currentTest === tests.intermediate ? 'intermediate' : 'advanced');
+        }
+        
+        // Show test selection
+        function showTestSelection() {
+            testSelectionSection.classList.remove('hidden');
+            testAreaSection.classList.add('hidden');
+            resultsAreaSection.classList.add('hidden');
+        }
+        
+        // Initialize
+        document.getElementById('next-btn').addEventListener('click', nextQuestion);
+        document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+        document.getElementById('finish-btn').addEventListener('click', finishTest);
+        
+        // Load badges on page load
+        loadBadges();
+    </script>
+</body>
+</html>

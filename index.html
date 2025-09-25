@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасная дорога - детям │ Главная</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #f0f9ff;
+        }
+        .character {
+            transition: all 0.3s ease;
+        }
+        .character:hover {
+            transform: scale(1.05);
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="traffic-cone" class="w-8 h-8"></i>
+                <h1 class="text-2xl font-bold">Безопасная дорога - детям │ Главная</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-yellow-200 transition">Главная</a></li>
+                    <li><a href="rules.html" class="hover:text-yellow-200 transition">Правила</a></li>
+                    <li><a href="tests.html" class="hover:text-yellow-200 transition">Тесты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+<p>ㅤ</p>
+
+    
+
+        <!-- Navigation Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <a href="rules.html" class="nav-btn bg-white rounded-xl shadow-lg p-6 text-center hover:bg-blue-50" data-aos="flip-left">
+                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-feather="book-open" class="w-10 h-10 text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Основные правила</h3>
+                <p class="text-gray-600">Узнай как правильно вести себя на дороге</p>
+            </a>
+            
+            <a href="tests.html" class="nav-btn bg-white rounded-xl shadow-lg p-6 text-center hover:bg-blue-50" data-aos="flip-left" data-aos-delay="150">
+                <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-feather="check-square" class="w-10 h-10 text-yellow-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Проверь знания</h3>
+                <p class="text-gray-600">Пройти тесты и получить награды</p>
+            </a>
+            
+            
+        </section>
+
+        <!-- Features -->
+        <section class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-8">Почему важно знать ПДД?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start" data-aos="fade-right">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i data-feather="shield" class="w-6 h-6 text-red-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">Безопасность</h3>
+                        <p class="text-gray-700">Знание правил помогает избежать опасных ситуаций на дороге</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start" data-aos="fade-left">
+                    <div class="bg-purple-100 p-3 rounded-full mr-4">
+                        <i data-feather="smile" class="w-6 h-6 text-purple-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">Уверенность</h3>
+                        <p class="text-gray-700">Ты будешь чувствовать себя уверенно, переходя дорогу</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start" data-aos="fade-right">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <i data-feather="users" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">Ответственность</h3>
+                        <p class="text-gray-700">Ты сможешь помочь другим правильно вести себя на дороге</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start" data-aos="fade-left">
+                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                        <i data-feather="award" class="w-6 h-6 text-yellow-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">Награды</h3>
+                        <p class="text-gray-700">Получай медали за знание правил дорожного движения</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4"></p>
+        </div>
+    </footer>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+        
+        // Simple animation for characters
+        document.querySelectorAll('.character').forEach((char, index) => {
+            char.addEventListener('mouseenter', () => {
+                char.style.transform = 'scale(1.1)';
+            });
+            char.addEventListener('mouseleave', () => {
+                char.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

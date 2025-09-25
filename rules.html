@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасная дорога - детям │ Основные правила</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #f0f9ff;
+        }
+        .rule-card {
+            transition: all 0.3s ease;
+        }
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .audio-btn {
+            transition: all 0.3s ease;
+        }
+        .audio-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="traffic-cone" class="w-8 h-8"></i>
+                <h1 class="text-2xl font-bold">Безопасная дорога - детям │ Основные правила</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-yellow-200 transition">Главная</a></li>
+                    <li><a href="rules.html" class="hover:text-yellow-200 transition font-bold">Правила</a></li>
+                    <li><a href="tests.html" class="hover:text-yellow-200 transition">Тесты</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold text-center text-blue-800 mb-8" data-aos="fade-down">Основные правила дорожного движения</h2>
+        
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center mb-12 gap-2" data-aos="fade-up">
+            <button class="tab-button bg-white px-6 py-2 rounded-full font-medium mr-2 mb-2 active" data-tab="pedestrian">
+                Для пешеходов
+            </button>
+            <button class="tab-button bg-white px-6 py-2 rounded-full font-medium mr-2 mb-2" data-tab="cyclist">
+                Для велосипедистов
+            </button>
+            <button class="tab-button bg-white px-6 py-2 rounded-full font-medium mb-2" data-tab="passenger">
+                Для пассажиров
+            </button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Pedestrian Rules -->
+            <div id="pedestrian" class="tab-panel active">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Rule 1 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6" data-aos="zoom-in">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">1</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv1.mp3"></audio> 
+                            <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Переходи дорогу по зебре</h3>
+                        <img src="images/bdt1.jpeg" alt="Пешеходный переход" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Всегда переходи дорогу только по пешеходному переходу. Перед тем как ступить на проезжую часть, посмотри сначала налево, потом направо, чтобы убедиться, что машины остановились.</p>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <p class="text-yellow-700 font-medium">Запомни: даже на зебре нужно быть внимательным!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 2 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">2</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv2.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Светофор - твой друг</h3>
+                        <img src="images/bdt3.jpeg" alt="Светофор" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Переходи дорогу только на зеленый сигнал светофора. Красный сигнал означает "стой", желтый - "приготовься", зеленый - "можно идти". Даже если горит зеленый, убедись, что все машины остановились.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                            <p class="text-blue-700 font-medium">Светофор для пешеходов часто имеет человечка: красный - стоит, зеленый - идёт.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 3 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">3</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv3.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Будь заметен в темноте</h3>
+                        <img src="images/bdt2.jpeg" alt="Светоотражатели" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">В темное время суток носи одежду со светоотражающими элементами или специальные браслеты. Это поможет водителям тебя заметить. Переходить дорогу в темноте нужно особенно внимательно.</p>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                            <p class="text-purple-700 font-medium">Светоотражатели делают тебя видимым для водителей с расстояния 150 метров!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 4 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">4</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv10.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Не играй у дороги</h3>
+                        <img src="images/bdt4.jpeg" alt="Детская площадка" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Играй только в специально отведенных местах: парках, дворах, детских площадках. Никогда не играй на тротуаре рядом с проезжей частью и тем более на самой дороге. Мяч может выкатиться на дорогу - не беги за ним, сначала посмотри по сторонам.</p>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <p class="text-red-700 font-medium">Игры у дороги - одна из главных причин детского травматизма!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 5 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">5</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv11.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Держись правой стороны</h3>
+                        <img src="images/bdt5.jpeg" alt="Тротуар" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Ходи по тротуару, придерживаясь правой стороны, чтобы не мешать другим пешеходам. Если тротуара нет, иди по обочине навстречу движению транспорта, чтобы видеть приближающиеся машины. В темное время суток обязательно используй светоотражатели.</p>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <p class="text-green-700 font-medium">Правило: транспорт едет по правой стороне, пешеходы идут навстречу.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cyclist Rules -->
+            <div id="cyclist" class="tab-panel hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Rule 1 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">1</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv4.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Защитная экипировка</h3>
+                        <img src="images/bdt6.jpeg" alt="Велосипедист в шлеме" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Всегда надевай шлем при езде на велосипеде. Он защитит голову при падении. Также рекомендуется использовать наколенники, налокотники и специальные перчатки. Яркая одежда со светоотражателями сделает тебя заметнее.</p>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <p class="text-yellow-700 font-medium">Шлем должен плотно сидеть на голове и не болтаться!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 2 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">2</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv5.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Где можно ездить</h3>
+                        <img src="images/bdt7.jpeg" alt="Велосипедная дорожка" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Детям до 14 лет можно ездить только по тротуарам, велодорожкам, пешеходным и парковым зонам. По проезжей части можно ездить только с 14 лет. Пересекая дорогу по пешеходному переходу, нужно слезть с велосипеда и вести его рядом.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                            <p class="text-blue-700 font-medium">Велосипедист на пешеходном переходе - пешеход!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 3 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">3</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv6.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Сигналы поворота</h3>
+                        <img src="images/bdt8.jpeg" alt="Велосипедист показывает поворот" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Перед поворотом нужно подать сигнал рукой: вытянуть прямую руку в сторону поворота (левую - для поворота налево, правую - для поворота направо). Перед остановкой подними прямую руку вверх. Подавай сигналы заранее, чтобы водители успели среагировать.</p>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                            <p class="text-purple-700 font-medium">Подавай сигналы поворота минимум за 5 секунд до маневра!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Passenger Rules -->
+            <div id="passenger" class="tab-panel hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Rule 1 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">1</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv7.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Автокресло - обязательно</h3>
+                        <img src="images/bdt9.jpeg" alt="Детское автокресло" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Дети до 12 лет должны перевозиться в автомобиле только с использованием детского удерживающего устройства (автокресла или бустера), соответствующего их росту и весу. Автокресло должно быть правильно установлено и закреплено.</p>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <p class="text-yellow-700 font-medium">Лучшее место для детского автокресла - заднее сиденье посередине!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 2 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">2</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv8.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Посадка и высадка</h3>
+                        <img src="images/bdt10.jpeg" alt="Посадка и высадка пассажиров и авто" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">Выходи из автомобиля только со стороны тротуара, а не проезжей части. Если нужно выйти на проезжую часть, делай это только после того, как взрослый проверит, что это безопасно. Не выбегай из машины сразу после остановки - сначала осмотрись.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                            <p class="text-blue-700 font-medium">Правило: сначала посмотри, потом открывай дверь!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rule 3 -->
+                    <div class="rule-card bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                                <span class="text-blue-800 font-bold text-xl">3</span>
+                            </div>
+                            <button class="audio-btn bg-green-100 p-2 rounded-full">
+                            <audio controls src="audio/bdtv9.mp3"></audio>
+                                <i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-800 mb-3">Поведение в транспорте</h3>
+                        <img src="images/bdt11.jpeg" alt="Дети в автобусе" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">В автобусе, трамвае или троллейбусе держись за поручни, не бегай по салону и не высовывайся в окно. Выходи только после полной остановки транспорта. Переходи дорогу после выхода из автобуса только по пешеходному переходу или на зеленый свет.</p>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                            <p class="text-purple-700 font-medium">После выхода из автобуса подожди, пока он отъедет, и только потом переходи дорогу!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4"></p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+        
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panels
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding panel
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+        
+        // Audio button functionality
+        document.querySelectorAll('.audio-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // In a real app, this would play audio for the rule
+                const icon = this.querySelector('i');
+                if (icon.getAttribute('data-feather') === 'volume-2') {
+                    feather.replace();
+                    // Simulate audio playing
+                    this.innerHTML = '<i data-feather="volume-x" class="w-5 h-5 text-red-600"></i>';
+                    feather.replace();
+                    setTimeout(() => {
+                        this.innerHTML = '<i data-feather="volume-2" class="w-5 h-5 text-green-600"></i>';
+                        feather.replace();
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
